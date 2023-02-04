@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Адамович Дарья гр 010101 lab1</title>
+  </head>
+  <body>
+    <script>
+      const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+      const personalMovieDB = {
+        count: numberOfFilms,
+        movies: {},
+      };
+      for (let i = 0; i < 2; i++) {
+        const filmName = prompt("Один из последних просмотренных фильмов?"),
+          filmMark = prompt("На сколько оцените его?");
+        if (
+          filmMark == "" ||
+          filmName == "" ||
+          filmName == null ||
+          filmMark == null ||
+          filmName.length > 50
+        ) {
+          alert("Упс... Что-то пошло не так."), i--;
+        } else {
+          personalMovieDB.movies[filmName] = filmMark;
+        }
+      }
+      console.log(personalMovieDB);
+    </script>
+  </body>
+</html>
