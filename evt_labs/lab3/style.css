@@ -1,0 +1,58 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: rgba(16, 233, 215, 0.178);
+}
+
+.line-first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column-third {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.line-secound {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.line-third {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.unity-column {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.unity-line {
+  display: flex;
+  flex-direction: column;
+}
