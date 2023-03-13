@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Адамович Дарья гр 010101 lab2</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body id="view">
+      <table>
+        <thead>
+          <tr>
+            <th>Film name</th>
+            <th>Mark</th>
+          </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+      </table>
+    
+    <script>
+      const choice = confirm("Хотите сделать список фильмов приватным?");
+      const personalMovieDB = {
+        privat: choice,
+        movies: {
+          'First': 5,
+          'Second': 7,
+          'Third': 9,
+        }
+      }
+      if (personalMovieDB.privat) {
+        document.getElementById('view').innerHTML = '<h2>Нет доступа к просотру списка</h2>';
+      } else {
+        let filmName = Object.keys(personalMovieDB.movies);
+        let filmMark = Object.values(personalMovieDB.movies);
+        let item = "<tbody>";
+
+        for (i = 0; i < 3; i++) {
+          item += "<tr>";
+          item += "<td>" + filmName[i] + "</td>";
+          item += "<td>" + filmMark[i] + "</td>";
+          item += "</tr>";
+        }
+        item += '</tbody>';
+        document.getElementById('tableData').innerHTML = item;
+      }
+    </script>
+  </body>
+</html>

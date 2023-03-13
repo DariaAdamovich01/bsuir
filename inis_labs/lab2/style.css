@@ -1,0 +1,10 @@
+table{
+    width: 50%;
+    text-align: center;
+}
+thead{
+    background-color: rgb(248, 255, 151);
+}
+td{
+    background-color: aquamarine;
+}
