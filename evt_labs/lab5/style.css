@@ -34,23 +34,6 @@ article:nth-child(7) { grid-area: post-7; }
 article:nth-child(8) { grid-area: post-8; }
 article:nth-child(9) { grid-area: post-9; }
 
-@media only screen and (max-width: 900px) {
-  .adaptive {
-    display: grid;
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas:
-      "post-1"
-      "post-2"
-      "post-3"
-      "post-4"
-      "post-5"
-      "post-6"
-      "post-7"
-      "post-8"
-      "post-9";
-  }
-}
-
 @media only screen and (max-width: 1400px) and (min-width: 900px) {
   .adaptive {
     display: grid;
