@@ -1,0 +1,80 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: rgba(16, 233, 215, 0.178);
+}
+
+article:nth-child(1) { grid-area: post-1; }
+article:nth-child(2) { grid-area: post-2; }
+article:nth-child(3) { grid-area: post-3; }
+article:nth-child(4) { grid-area: post-4; }
+article:nth-child(5) { grid-area: post-5; }
+article:nth-child(6) { grid-area: post-6; }
+article:nth-child(7) { grid-area: post-7; }
+article:nth-child(8) { grid-area: post-8; }
+article:nth-child(9) { grid-area: post-9; }
+
+@media only screen and (max-width: 900px) {
+  .adaptive {
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas:
+      "post-1"
+      "post-2"
+      "post-3"
+      "post-4"
+      "post-5"
+      "post-6"
+      "post-7"
+      "post-8"
+      "post-9";
+  }
+}
+
+@media only screen and (max-width: 1400px) and (min-width: 900px) {
+  .adaptive {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "post-1 post-1"
+      "post-2 post-2"
+      "post-3 post-3"
+      "post-4 post-5"
+      "post-6 post-7"
+      "post-8 post-9";
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .adaptive {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "post-1 post-1 post-2 post-2"
+      "post-3 post-3 post-3 post-3"
+      "post-4 post-4 post-5 post-5"
+      "post-6 post-7 post-8 post-9";
+  }
+}

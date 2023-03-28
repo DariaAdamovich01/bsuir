@@ -1,0 +1,69 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: rgba(16, 233, 215, 0.178);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "post-1 post-2 post-3 post-3"
+    "post-1 post-4 post-3 post-3"
+    "post-1 post-5 post-6 post-7"
+    "post-8 post-9 post-9 post-10";
+    
+}
+
+.grid article:nth-child(1){
+  grid-area: post-1;
+}
+
+.grid article:nth-child(2){
+  grid-area: post-2;
+}
+.grid article:nth-child(3){
+  grid-area: post-3;
+}
+.grid article:nth-child(4){
+  grid-area: post-4;
+}
+.grid article:nth-child(5){
+  grid-area: post-5;
+}
+.grid article:nth-child(6){
+  grid-area: post-6;
+}
+.grid article:nth-child(7){
+  grid-area: post-7;
+}
+.grid article:nth-child(8){
+  grid-area: post-8;
+}
+.grid article:nth-child(9){
+  grid-area: post-9;
+}
+.grid article:nth-child(10){
+  grid-area: post-10;
+}
