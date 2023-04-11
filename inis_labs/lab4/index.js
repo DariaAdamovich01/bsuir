@@ -1,78 +1,69 @@
-fetch('shirts.js')
-    .then(response => response.text())
-    .then(data => {
-        data = data.replace('const shirts =', '');
-        const shirts = JSON.parse(data);
-        document.getElementById('square-container').innerHTML = shirts.reduce((prev, currentValue) => {
-            let name = currentValue.name
-                ? currentValue.name
-                : 'Unnamed Shirt';
-            let path = currentValue.colors.white
-                ? currentValue.colors.white.front
-                : currentValue.default.front;
-            let amount = Object.keys(currentValue.colors).length;
-            let shirt_string = `<div class="square-item">
-                                    <img src="${path}" alt="${name}_shirt_img">
-                                    <br>
-                                    <b>${name}</b>
-                                    <p>Available in ${amount} colors</p>
-                                    <button onclick="showModal(this.parentElement)">Quick View</button>
-                                    <button onclick="openDetails(this.parentElement)">See Page</button>
-                                </div>`
-            return prev + shirt_string;
-        }, '');
-    });
-
-    const openDetails = async (squareItem) => {
-        const name = squareItem.querySelector('b').innerText;
-        const shirt = await fetchShirt(name)
-        localStorage.setItem('item', JSON.stringify(shirt))
-        location.href = "details.html"
-    }
-
-const showModal = async (squareItem) => {
-    const path = squareItem.querySelector('img').src;
-    const name = squareItem.querySelector('b').innerText;
-    const amount = squareItem.querySelector('p').innerText.match(/\d+/)[0];
-    const price = await fetchPrice(name);
-    console.log(price)
-    const modalHTML = `
-        <div class="modal">
-          <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <img src="${path}" alt="${name}_shirt_img">
-            <h2>${name}</h2>
-            <p>Available in ${amount} colors</p>
-            <p>Price: ${price}</p>
-          </div>
-        </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-};
-
-const closeModal = () => {
-    const modal = document.querySelector('.modal');
-    modal.remove();
+let hide = function(){
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('filter').style.display = 'none';
+    document.body.style.overflow = 'visible';
 }
 
-const fetchShirt = async (name) => {
-    return fetch('shirts.js')
-        .then(response => response.text())
-        .then(data => {
-            data = data.replace('const shirts =', '');
-            const shirts = JSON.parse(data);
-            return shirts.find(shirt => shirt.name === name);
-        });
+for (let i = 0; i < shirts.length; i++) {
+const box  = document.querySelector('.content');
+const box1  = document.createElement('div');
+box1.classList.add('shirts');
+box.append(box1);
+const contentBox = document.querySelectorAll('.shirts');
+const image = document.createElement('img');
+if(shirts[i].colors.white.front!="" && shirts[i].colors.white.front!= undefined)
+{
+    image.src = shirts[i].colors.white.front;
+}
+else{
+    image.src = shirts[i].default.front;
+}
+image.alt = 'No image';
+const shirtName = document.createElement('div');
+shirtName.classList.add('contentName');
+if(shirts[i].name!="" && shirts[i].name!= undefined)
+{
+    shirtName.innerText = shirts[i].name;
+}
+else{
+    shirtName.innerText = 'No name';
 }
 
+const smallContent = document.createElement('div');
+smallContent.classList.add('smallContent');
+smallContent.innerText = 'Avaliable in ' + Object.keys(shirts[i].colors).length + ' colors';
+const prevView = document.createElement('button');
+prevView.innerText = 'Quick view';
+prevView.onclick = function(){
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('filter').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    const mod = document.getElementById('modal');
+    mod.textContent = '';
+    const imageFront = document.createElement('img');
+    const imageBack = document.createElement('img');
+    imageFront.src = shirts[i].colors.white.front;
+    imageBack.src = shirts[i].colors.white.back;
+    const name = document.createElement('div');
+    name.innerText = shirts[i].name;
+    const price = document.createElement('div');
+    price.innerText = shirts[i].price;
+    mod.append(imageFront);
+    mod.append(imageBack);
+    mod.append(name);
+    mod.append(price);
+}
+const seePage = document.createElement('button');
+seePage.innerText = 'See page';
+seePage.onclick = function(){
+    document.location.href = 'details.html';
+    localStorage.setItem('id', i);
 
-const fetchPrice = (name) => {
-    return fetch('shirts.js')
-        .then(response => response.text())
-        .then(data => {
-            data = data.replace('const shirts =', '');
-            const shirts = JSON.parse(data);
-            let shirt = shirts.find(shirt => shirt.name === name);
-            return shirt.price;
-        });
+}
+seePage.style.float = 'right';
+contentBox[i].append(image);
+contentBox[i].append(shirtName);
+contentBox[i].append(smallContent);
+contentBox[i].append(prevView);
+contentBox[i].append(seePage);
 }
