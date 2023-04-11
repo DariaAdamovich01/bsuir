@@ -56,7 +56,7 @@ prevView.onclick = function(){
 const seePage = document.createElement('button');
 seePage.innerText = 'See page';
 seePage.onclick = function(){
-    document.location.href = 'lab4_INiS.html';
+    document.location.href = 'secound.html';
     localStorage.setItem('id', i);
 
 }
