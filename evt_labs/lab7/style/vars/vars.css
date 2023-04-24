@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 75rem;
+  min-width: 22.5rem;
+  width: 100%;
+}
+@media (max-width: 48em) {
+  .container {
+    padding: 15px;
+  }
+}
+@media (max-width: 85.5em) {
+  .container {
+    padding: 15px;
+  }
+}
+
+.titel {
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 3.0625rem;
+}
+
+.subtitel-first {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 160%;
+  color: #565656;
+  margin-top: 1.875rem;
+}
+
+.subtitel-secound {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 160%;
+  color: #757575;
+  margin-top: 1.0625rem;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 40px;
+  background-color: #2639ed;
+  color: #ffffff;
+  border-radius: 60px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.05);
+  border-radius: 2.5rem;
+  max-width: 19.25rem;
+  max-height: 23, 6875rem;
+  padding: 39px 32px 57px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card .card__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 121px;
+  height: 121px;
+}
+.card .card__titel {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: #000000;
+  margin-top: 31px;
+  margin-bottom: 27px;
+}
+.card .card__subtitel {
+  font-size: 1rem;
+  line-height: 140%;
+  text-align: center;
+  color: #757575;
+}
+
+.icon {
+  max-width: 4.625rem;
+  max-height: 4.625rem;
+}/*# sourceMappingURL=vars.css.map */
