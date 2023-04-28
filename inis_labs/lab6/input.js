@@ -142,5 +142,52 @@ function handleTouchEnd(event) {
     }
   }
 }
+///
+function click(event) {
+  if (event.touches.length === 1) {
+    // если один палец на экране
+    let touch = event.touches[0];
+    if (touch.target === followingDiv) {
+      // если палец коснулся элемента div
+      following = true;
+      offsetX = touch.pageX - followingDiv.offsetLeft;
+      offsetY = touch.pageY - followingDiv.offsetTop;
+    }
+  } else if (event.touches.length > 1) {
+    // остановка режима "следования за пальцем" и возврат div в исходное положение
+    followingModeActive = false;
+    secondFingerDetected = true;
+    followingDiv.style.left = originalPosition.x + 'px';
+    followingDiv.style.top = originalPosition.y + 'px';
+  }
+}
 
 
+
+
+
+/*
+function stopFollowing() {
+  following = false;
+  followingDiv.style.transform = 'translate(0, 0)';
+}
+
+function move(event) {
+  if (following) {
+    let touch = event.touches[0];
+    let x = touch.pageX - offsetX;
+    let y = touch.pageY - offsetY;
+    followingDiv.style.transform = `translate(${x}px, ${y}px)`;
+  }
+}
+
+function release(event) {
+  if (following) {
+    let touch = event.changedTouches[0];
+    let x = touch.pageX - offsetX;
+    let y = touch.pageY - offsetY;
+    followingDiv.style.transform = `translate(${x}px, ${y}px)`;
+    following = false;
+  }
+}
+*/
