@@ -1,0 +1,79 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+.box {
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 150px);
+  width: 275px;
+  height: 160px;
+  padding: 0 0 0 25px;
+  border: 10px solid #ababab;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px -3px rgb(0 0 0 / 100%);
+}
+
+.ball {
+  z-index: -1;
+  float: left;
+  position: relative;
+  margin-top: 100px;
+  width: 50px;
+  height: 50px;
+  background: repeating-linear-gradient(45deg, #195dfb, transparent 100px);
+  border-radius: 100%;
+  transform-origin: 50% -100px;
+}
+
+.ball::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: 24px;
+  height: 100px;
+  width: 1px;
+  background: gray;
+}
+
+.ball:nth-child(1) {
+  animation: ball1 0.5s infinite alternate 0.5s ease-out;
+}
+.ball:nth-child(5) {
+  animation: ball5 0.5s infinite alternate ease-out;
+}
+
+@keyframes ball1 {
+  0%,
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+@keyframes ball5 {
+  0%,
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
