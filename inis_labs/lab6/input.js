@@ -161,33 +161,3 @@ function click(event) {
     followingDiv.style.top = originalPosition.y + 'px';
   }
 }
-
-
-
-
-
-/*
-function stopFollowing() {
-  following = false;
-  followingDiv.style.transform = 'translate(0, 0)';
-}
-
-function move(event) {
-  if (following) {
-    let touch = event.touches[0];
-    let x = touch.pageX - offsetX;
-    let y = touch.pageY - offsetY;
-    followingDiv.style.transform = `translate(${x}px, ${y}px)`;
-  }
-}
-
-function release(event) {
-  if (following) {
-    let touch = event.changedTouches[0];
-    let x = touch.pageX - offsetX;
-    let y = touch.pageY - offsetY;
-    followingDiv.style.transform = `translate(${x}px, ${y}px)`;
-    following = false;
-  }
-}
-*/
